@@ -122,10 +122,6 @@ export default function LandingPage() {
       <section className="pt-28 pb-16 md:pt-40 md:pb-24 bg-gradient-to-br from-brand-yellow/10 via-white to-brand-yellow/5 overflow-hidden">
         <div className="section-container">
           <div className="max-w-3xl mx-auto text-center">
-            <div className="inline-flex items-center gap-2 bg-brand-yellow/20 text-brand-black px-4 py-1.5 rounded-full text-sm font-medium mb-6">
-              <span className="w-2 h-2 bg-brand-yellow rounded-full animate-pulse" />
-              {t.hero.badge}
-            </div>
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-brand-black leading-tight mb-6">
               {t.hero.title1}
               <span className="text-brand-yellow block sm:inline"> {t.hero.titleHighlight} </span>
@@ -136,7 +132,6 @@ export default function LandingPage() {
               <a href="#cta" className="btn-primary text-lg">
                 {t.hero.cta}<ArrowRight className="w-5 h-5 ml-2" />
               </a>
-              <p className="text-sm text-gray-500">{t.hero.ctaSub}</p>
             </div>
             <div className="grid grid-cols-3 gap-4 md:gap-8 max-w-lg mx-auto">
               {[
@@ -311,9 +306,9 @@ export default function LandingPage() {
             <div>
               <h4 className="text-white font-semibold mb-4">{t.footer.legal}</h4>
               <ul className="space-y-2 text-sm">
-                <li><a href="#" className="hover:text-white transition-colors">{t.footer.links.terms}</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">{t.footer.links.privacy}</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">{t.footer.links.harassment}</a></li>
+                <li><a href="https://hellonanny-san.com/ServiceAgreement" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">{t.footer.links.terms}</a></li>
+                <li><a href="https://hellonanny-san.com/PrivacyPolicy" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">{t.footer.links.privacy}</a></li>
+                <li><a href="https://hellonanny-san.com/announcement/customer-harassment-policy" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">{t.footer.links.harassment}</a></li>
               </ul>
             </div>
           </div>

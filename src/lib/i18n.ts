@@ -19,14 +19,12 @@ const translations = {
       getStarted: "Get Started",
     },
     hero: {
-      badge: "Now Available in Bangkok",
       title1: "Find Your Perfect",
       titleHighlight: "Nanny & Maid",
       title2: "By Yourself",
       subtitle:
         "Search, chat, video call, and hire — all in one app. No middleman, no waiting. Just ฿1,000/month.",
-      cta: "Start Free Trial",
-      ctaSub: "No credit card required",
+      cta: "Browse for Free",
       stat1Value: "1,200+",
       stat1Label: "Verified Nannies",
       stat2Value: "4.9",
@@ -64,7 +62,7 @@ const translations = {
       },
       safety: {
         title: "Verified Profiles",
-        desc: "All candidates undergo ID verification and background checks. Your family's safety comes first.",
+        desc: "All candidates undergo ID verification. Background-checked candidates are marked with a badge so you can choose with confidence.",
       },
       price: {
         title: "Only ฿1,000/month",
@@ -105,8 +103,8 @@ const translations = {
         "Verified candidate profiles",
         "Priority customer support",
       ],
-      cta: "Start Free Trial",
-      trial: "7-day free trial. Cancel anytime.",
+      cta: "Browse for Free",
+      trial: "Cancel anytime.",
       compare: "Compare: Agency fees are ฿4,000–8,000 per match",
     },
     reviews: {
@@ -143,7 +141,7 @@ const translations = {
       title: "Ready to Find Your Perfect Helper?",
       subtitle: "Join thousands of families in Bangkok who trust HelloNanny+",
       button: "Get Started Now",
-      note: "Free 7-day trial. No credit card required.",
+      note: "Browse candidates for free. No credit card required.",
     },
     footer: {
       description:
@@ -175,14 +173,12 @@ const translations = {
       getStarted: "始める",
     },
     hero: {
-      badge: "バンコクで利用可能",
       title1: "理想の",
       titleHighlight: "ナニー＆メイド",
       title2: "を自分で見つけよう",
       subtitle:
         "検索、チャット、ビデオ通話、採用まで — すべて一つのアプリで。仲介なし、待ち時間なし。月額たった1,000バーツ。",
-      cta: "無料トライアルを始める",
-      ctaSub: "クレジットカード不要",
+      cta: "無料で覗いてみる",
       stat1Value: "1,200+",
       stat1Label: "認証済みナニー",
       stat2Value: "4.9",
@@ -220,7 +216,7 @@ const translations = {
       },
       safety: {
         title: "認証済みプロフィール",
-        desc: "すべての候補者がID確認とバックグラウンドチェックを受けています。ご家族の安全が最優先。",
+        desc: "すべての候補者がID確認済み。バックグラウンドチェック済みの候補者にはマークが表示されるので、安心して選べます。",
       },
       price: {
         title: "月額たった1,000バーツ",
@@ -261,8 +257,8 @@ const translations = {
         "認証済み候補者プロフィール",
         "優先カスタマーサポート",
       ],
-      cta: "無料トライアルを始める",
-      trial: "7日間無料トライアル。いつでも解約可能。",
+      cta: "無料で覗いてみる",
+      trial: "いつでも解約可能。",
       compare: "比較：エージェント手数料は1回4,000〜8,000バーツ",
     },
     reviews: {
@@ -299,7 +295,7 @@ const translations = {
       title: "理想のヘルパーを見つける準備はできましたか？",
       subtitle: "バンコクの数千のご家庭がHelloNanny+を信頼しています",
       button: "今すぐ始める",
-      note: "7日間無料トライアル。クレジットカード不要。",
+      note: "無料で候補者を閲覧できます。クレジットカード不要。",
     },
     footer: {
       description:
@@ -331,14 +327,12 @@ const translations = {
       getStarted: "开始使用",
     },
     hero: {
-      badge: "曼谷可用",
       title1: "自己寻找理想的",
       titleHighlight: "保姆和女佣",
       title2: "",
       subtitle:
         "搜索、聊天、视频通话、录用 — 一切尽在一个应用中。无中介，无等待。每月仅需1,000泰铢。",
-      cta: "开始免费试用",
-      ctaSub: "无需信用卡",
+      cta: "免费浏览",
       stat1Value: "1,200+",
       stat1Label: "认证保姆",
       stat2Value: "4.9",
@@ -376,7 +370,7 @@ const translations = {
       },
       safety: {
         title: "认证档案",
-        desc: "所有候选人均经过身份验证和背景调查。您家人的安全是第一位的。",
+        desc: "所有候选人均经过身份验证。通过背景调查的候选人会显示标记，让您安心选择。",
       },
       price: {
         title: "每月仅需1,000泰铢",
@@ -417,8 +411,8 @@ const translations = {
         "认证候选人档案",
         "优先客户支持",
       ],
-      cta: "开始免费试用",
-      trial: "7天免费试用。随时取消。",
+      cta: "免费浏览",
+      trial: "随时取消。",
       compare: "对比：中介费每次4,000-8,000泰铢",
     },
     reviews: {
@@ -455,7 +449,7 @@ const translations = {
       title: "准备好找到理想帮手了吗？",
       subtitle: "曼谷数千家庭信赖HelloNanny+",
       button: "立即开始",
-      note: "7天免费试用。无需信用卡。",
+      note: "免费浏览候选人。无需信用卡。",
     },
     footer: {
       description: "在曼谷寻找保姆和女佣的更聪明方式。搜索、联系、录用 — 一切在一个应用中。",
@@ -486,14 +480,12 @@ const translations = {
       getStarted: "เริ่มต้น",
     },
     hero: {
-      badge: "ให้บริการในกรุงเทพฯ",
       title1: "ค้นหา",
       titleHighlight: "พี่เลี้ยงและแม่บ้าน",
       title2: "ในอุดมคติด้วยตัวเอง",
       subtitle:
         "ค้นหา แชท วิดีโอคอล และจ้างงาน — ทั้งหมดในแอปเดียว ไม่ต้องผ่านนายหน้า ไม่ต้องรอ เพียง ฿1,000/เดือน",
-      cta: "เริ่มทดลองใช้ฟรี",
-      ctaSub: "ไม่ต้องใช้บัตรเครดิต",
+      cta: "ดูฟรี",
       stat1Value: "1,200+",
       stat1Label: "พี่เลี้ยงที่ยืนยันแล้ว",
       stat2Value: "4.9",
@@ -531,7 +523,7 @@ const translations = {
       },
       safety: {
         title: "โปรไฟล์ที่ยืนยันแล้ว",
-        desc: "ผู้สมัครทุกคนผ่านการตรวจสอบตัวตนและประวัติ ความปลอดภัยของครอบครัวคุณมาก่อน",
+        desc: "ผู้สมัครทุกคนผ่านการยืนยันตัวตน ผู้สมัครที่ผ่านการตรวจสอบประวัติจะมีเครื่องหมายแสดงให้เลือกได้อย่างมั่นใจ",
       },
       price: {
         title: "เพียง ฿1,000/เดือน",
@@ -572,8 +564,8 @@ const translations = {
         "โปรไฟล์ผู้สมัครที่ยืนยันแล้ว",
         "บริการลูกค้าแบบพิเศษ",
       ],
-      cta: "เริ่มทดลองใช้ฟรี",
-      trial: "ทดลองใช้ฟรี 7 วัน ยกเลิกได้ตลอดเวลา",
+      cta: "ดูฟรี",
+      trial: "ยกเลิกได้ตลอดเวลา",
       compare: "เปรียบเทียบ: ค่าเอเจนซี่ 4,000-8,000 บาทต่อครั้ง",
     },
     reviews: {
@@ -610,7 +602,7 @@ const translations = {
       title: "พร้อมหาผู้ช่วยในอุดมคติหรือยัง?",
       subtitle: "ร่วมกับครอบครัวนับพันในกรุงเทพฯ ที่ไว้วางใจ HelloNanny+",
       button: "เริ่มต้นเลย",
-      note: "ทดลองใช้ฟรี 7 วัน ไม่ต้องใช้บัตรเครดิต",
+      note: "ดูผู้สมัครได้ฟรี ไม่ต้องใช้บัตรเครดิต",
     },
     footer: {
       description:
