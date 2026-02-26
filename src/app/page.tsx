@@ -19,7 +19,223 @@ import {
   UserPlus,
   Handshake,
   ArrowRight,
+  Heart,
+  BadgeCheck,
+  Phone,
 } from "lucide-react";
+
+/* ─── Phone Mockup Component ─── */
+function PhoneMockup({ children, className = "" }: { children: React.ReactNode; className?: string }) {
+  return (
+    <div className={`relative mx-auto ${className}`}>
+      {/* Phone frame */}
+      <div className="relative bg-brand-black rounded-[2.5rem] p-3 shadow-2xl">
+        {/* Notch */}
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-28 h-6 bg-brand-black rounded-b-2xl z-10" />
+        {/* Screen */}
+        <div className="relative bg-white rounded-[2rem] overflow-hidden w-[240px] h-[480px] md:w-[280px] md:h-[560px]">
+          {children}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/* ─── Mock App Screen: Search ─── */
+function MockSearchScreen() {
+  return (
+    <div className="h-full bg-gray-50 p-4 text-xs">
+      {/* Status bar */}
+      <div className="flex justify-between items-center mb-3 text-[10px] text-gray-400">
+        <span>9:41</span>
+        <div className="flex gap-1">
+          <div className="w-3 h-2 bg-gray-400 rounded-sm" />
+          <div className="w-4 h-2 bg-gray-400 rounded-sm" />
+        </div>
+      </div>
+      {/* Search bar */}
+      <div className="bg-white rounded-xl p-2.5 mb-3 shadow-sm border border-gray-100">
+        <div className="flex items-center gap-2">
+          <Search className="w-3.5 h-3.5 text-gray-400" />
+          <span className="text-gray-400 text-[11px]">Search nannies...</span>
+        </div>
+      </div>
+      {/* Filter chips */}
+      <div className="flex gap-1.5 mb-3 overflow-hidden">
+        <span className="bg-brand-yellow/20 text-brand-yellow-dark px-2 py-0.5 rounded-full text-[10px] font-medium whitespace-nowrap">English</span>
+        <span className="bg-gray-100 text-gray-600 px-2 py-0.5 rounded-full text-[10px] whitespace-nowrap">Full-time</span>
+        <span className="bg-gray-100 text-gray-600 px-2 py-0.5 rounded-full text-[10px] whitespace-nowrap">&lt;5km</span>
+      </div>
+      {/* Candidate cards */}
+      {[
+        { name: "Maria S.", dist: "1.2 km", rating: "4.9", exp: "5 yrs", verified: true },
+        { name: "Suda K.", dist: "2.8 km", rating: "4.8", exp: "3 yrs", verified: true },
+        { name: "Anh T.", dist: "3.5 km", rating: "4.7", exp: "7 yrs", verified: false },
+      ].map((c, i) => (
+        <div key={i} className="bg-white rounded-xl p-2.5 mb-2 shadow-sm border border-gray-100">
+          <div className="flex gap-2">
+            <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-brand-yellow/30 to-brand-yellow/10 flex items-center justify-center flex-shrink-0">
+              <span className="text-sm font-bold text-brand-yellow-dark">{c.name.charAt(0)}</span>
+            </div>
+            <div className="flex-1 min-w-0">
+              <div className="flex items-center gap-1">
+                <span className="font-semibold text-[11px] text-brand-black">{c.name}</span>
+                {c.verified && <BadgeCheck className="w-3 h-3 text-blue-500" />}
+              </div>
+              <div className="flex items-center gap-2 mt-0.5">
+                <span className="text-[10px] text-gray-400 flex items-center gap-0.5"><MapPin className="w-2.5 h-2.5" />{c.dist}</span>
+                <span className="text-[10px] text-gray-400 flex items-center gap-0.5"><Star className="w-2.5 h-2.5 text-brand-yellow fill-brand-yellow" />{c.rating}</span>
+                <span className="text-[10px] text-gray-400">{c.exp}</span>
+              </div>
+            </div>
+            <button className="self-center bg-brand-yellow/10 text-brand-yellow-dark px-2 py-1 rounded-lg text-[10px] font-medium">View</button>
+          </div>
+        </div>
+      ))}
+      {/* Bottom nav */}
+      <div className="absolute bottom-0 left-0 right-0 bg-white border-t border-gray-100 flex justify-around py-2 px-4">
+        <div className="flex flex-col items-center gap-0.5">
+          <Search className="w-4 h-4 text-brand-yellow" />
+          <span className="text-[8px] text-brand-yellow font-medium">Search</span>
+        </div>
+        <div className="flex flex-col items-center gap-0.5">
+          <MessageCircle className="w-4 h-4 text-gray-300" />
+          <span className="text-[8px] text-gray-400">Chat</span>
+        </div>
+        <div className="flex flex-col items-center gap-0.5">
+          <Heart className="w-4 h-4 text-gray-300" />
+          <span className="text-[8px] text-gray-400">Saved</span>
+        </div>
+        <div className="flex flex-col items-center gap-0.5">
+          <UserPlus className="w-4 h-4 text-gray-300" />
+          <span className="text-[8px] text-gray-400">Profile</span>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/* ─── Mock App Screen: Chat ─── */
+function MockChatScreen() {
+  return (
+    <div className="h-full bg-white flex flex-col text-xs">
+      {/* Header */}
+      <div className="bg-white border-b border-gray-100 p-3 flex items-center gap-2">
+        <div className="w-8 h-8 rounded-full bg-gradient-to-br from-brand-yellow/30 to-brand-yellow/10 flex items-center justify-center">
+          <span className="text-xs font-bold text-brand-yellow-dark">M</span>
+        </div>
+        <div>
+          <div className="flex items-center gap-1">
+            <span className="font-semibold text-[11px]">Maria S.</span>
+            <BadgeCheck className="w-3 h-3 text-blue-500" />
+          </div>
+          <span className="text-[9px] text-green-500">Online</span>
+        </div>
+        <div className="ml-auto flex gap-2">
+          <Phone className="w-4 h-4 text-gray-400" />
+          <Video className="w-4 h-4 text-brand-yellow" />
+        </div>
+      </div>
+      {/* Messages */}
+      <div className="flex-1 p-3 space-y-2 overflow-hidden bg-gray-50">
+        <div className="flex justify-start">
+          <div className="bg-white rounded-xl rounded-tl-sm px-3 py-1.5 max-w-[75%] shadow-sm">
+            <p className="text-[10px] text-gray-700">Hello! I saw your profile. I have 5 years experience with kids aged 2-6.</p>
+            <span className="text-[8px] text-gray-400 mt-0.5 block">10:23</span>
+          </div>
+        </div>
+        <div className="flex justify-end">
+          <div className="bg-brand-yellow/20 rounded-xl rounded-tr-sm px-3 py-1.5 max-w-[75%]">
+            <p className="text-[10px] text-gray-700">Great! Can you speak Japanese?</p>
+            <span className="text-[8px] text-gray-400 mt-0.5 block text-right">10:24</span>
+          </div>
+        </div>
+        <div className="flex justify-start">
+          <div className="bg-white rounded-xl rounded-tl-sm px-3 py-1.5 max-w-[75%] shadow-sm">
+            <p className="text-[10px] text-gray-700">Yes! I studied Japanese for 3 years. I can communicate well with children in Japanese.</p>
+            <span className="text-[8px] text-gray-400 mt-0.5 block">10:25</span>
+          </div>
+        </div>
+        <div className="flex justify-end">
+          <div className="bg-brand-yellow/20 rounded-xl rounded-tr-sm px-3 py-1.5 max-w-[75%]">
+            <p className="text-[10px] text-gray-700">Wonderful! Shall we do a video call?</p>
+            <span className="text-[8px] text-gray-400 mt-0.5 block text-right">10:26</span>
+          </div>
+        </div>
+      </div>
+      {/* Input */}
+      <div className="bg-white border-t border-gray-100 p-2 flex items-center gap-2">
+        <div className="flex-1 bg-gray-50 rounded-full px-3 py-1.5 text-[10px] text-gray-400">Type a message...</div>
+        <div className="w-7 h-7 bg-brand-yellow rounded-full flex items-center justify-center">
+          <Send className="w-3.5 h-3.5 text-white" />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/* ─── Mock App Screen: Profile ─── */
+function MockProfileScreen() {
+  return (
+    <div className="h-full bg-white text-xs overflow-hidden">
+      {/* Hero photo placeholder */}
+      <div className="h-32 md:h-36 bg-gradient-to-br from-brand-yellow/40 via-brand-yellow/20 to-orange-100 relative">
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 w-16 h-16 rounded-full border-4 border-white bg-gradient-to-br from-brand-yellow/30 to-brand-yellow/10 flex items-center justify-center shadow-md">
+          <span className="text-xl font-bold text-brand-yellow-dark">M</span>
+        </div>
+      </div>
+      {/* Profile info */}
+      <div className="pt-10 px-4 text-center">
+        <div className="flex items-center justify-center gap-1">
+          <span className="font-bold text-sm text-brand-black">Maria Santos</span>
+          <BadgeCheck className="w-3.5 h-3.5 text-blue-500" />
+        </div>
+        <p className="text-[10px] text-gray-500 mt-0.5">Professional Nanny &bull; 5 yrs exp</p>
+        <div className="flex items-center justify-center gap-1 mt-1">
+          <Star className="w-3 h-3 text-brand-yellow fill-brand-yellow" />
+          <span className="text-[11px] font-semibold">4.9</span>
+          <span className="text-[10px] text-gray-400">(47 reviews)</span>
+        </div>
+        <div className="flex items-center justify-center gap-1 mt-1">
+          <MapPin className="w-3 h-3 text-gray-400" />
+          <span className="text-[10px] text-gray-500">1.2 km away</span>
+        </div>
+      </div>
+      {/* Tags */}
+      <div className="flex flex-wrap gap-1 px-4 mt-3 justify-center">
+        <span className="bg-brand-yellow/10 text-brand-yellow-dark px-2 py-0.5 rounded-full text-[9px]">English</span>
+        <span className="bg-brand-yellow/10 text-brand-yellow-dark px-2 py-0.5 rounded-full text-[9px]">Japanese</span>
+        <span className="bg-brand-yellow/10 text-brand-yellow-dark px-2 py-0.5 rounded-full text-[9px]">Thai</span>
+        <span className="bg-green-50 text-green-600 px-2 py-0.5 rounded-full text-[9px]">BG Checked</span>
+      </div>
+      {/* Action buttons */}
+      <div className="flex gap-2 px-4 mt-3">
+        <button className="flex-1 bg-brand-yellow text-brand-black py-1.5 rounded-xl text-[10px] font-bold flex items-center justify-center gap-1">
+          <Send className="w-3 h-3" />Offer
+        </button>
+        <button className="flex-1 bg-gray-100 text-gray-700 py-1.5 rounded-xl text-[10px] font-medium flex items-center justify-center gap-1">
+          <MessageCircle className="w-3 h-3" />Chat
+        </button>
+        <button className="bg-gray-100 text-gray-700 p-1.5 rounded-xl">
+          <Video className="w-3.5 h-3.5" />
+        </button>
+      </div>
+      {/* Reviews preview */}
+      <div className="px-4 mt-3">
+        <div className="text-[10px] font-semibold text-brand-black mb-1.5">Recent Reviews</div>
+        <div className="bg-gray-50 rounded-lg p-2">
+          <div className="flex gap-1 mb-0.5">
+            {Array.from({ length: 5 }).map((_, i) => (
+              <Star key={i} className="w-2.5 h-2.5 text-brand-yellow fill-brand-yellow" />
+            ))}
+          </div>
+          <p className="text-[9px] text-gray-600 leading-relaxed">&ldquo;Maria is amazing with our kids! Very patient and always on time.&rdquo;</p>
+          <p className="text-[8px] text-gray-400 mt-0.5">- Yuki T.</p>
+        </div>
+      </div>
+    </div>
+  );
+}
 
 export default function LandingPage() {
   const [locale, setLocale] = useState<Locale>("en");
@@ -118,32 +334,47 @@ export default function LandingPage() {
         )}
       </nav>
 
-      {/* HERO */}
-      <section className="pt-28 pb-16 md:pt-40 md:pb-24 bg-gradient-to-br from-brand-yellow/10 via-white to-brand-yellow/5 overflow-hidden">
+      {/* HERO - Split layout with phone mockup */}
+      <section className="pt-28 pb-8 md:pt-36 md:pb-16 bg-gradient-to-br from-brand-yellow/10 via-white to-brand-yellow/5 overflow-hidden">
         <div className="section-container">
-          <div className="max-w-3xl mx-auto text-center">
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-brand-black leading-tight mb-6">
-              {t.hero.title1}
-              <span className="text-brand-yellow block sm:inline"> {t.hero.titleHighlight} </span>
-              {t.hero.title2}
-            </h1>
-            <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto mb-10">{t.hero.subtitle}</p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
-              <a href="https://app.hellonanny-san.com/signup_user" className="btn-primary text-lg">
-                {t.hero.cta}<ArrowRight className="w-5 h-5 ml-2" />
-              </a>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+            {/* Left: Text */}
+            <div className="text-center lg:text-left">
+              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-6xl font-extrabold text-brand-black leading-tight mb-6">
+                {t.hero.title1}
+                <span className="text-brand-yellow block"> {t.hero.titleHighlight} </span>
+                {t.hero.title2}
+              </h1>
+              <p className="text-lg md:text-xl text-gray-600 max-w-xl mx-auto lg:mx-0 mb-8">{t.hero.subtitle}</p>
+              <div className="flex flex-col sm:flex-row items-center lg:items-start justify-center lg:justify-start gap-4 mb-10">
+                <a href="https://app.hellonanny-san.com/signup_user" className="btn-primary text-lg">
+                  {t.hero.cta}<ArrowRight className="w-5 h-5 ml-2" />
+                </a>
+              </div>
+              <div className="grid grid-cols-3 gap-4 md:gap-8 max-w-md mx-auto lg:mx-0">
+                {[
+                  { value: t.hero.stat1Value, label: t.hero.stat1Label },
+                  { value: t.hero.stat2Value, label: t.hero.stat2Label },
+                  { value: t.hero.stat3Value, label: t.hero.stat3Label },
+                ].map((stat, i) => (
+                  <div key={i} className="text-center lg:text-left">
+                    <div className="text-2xl md:text-3xl font-extrabold text-brand-black">{stat.value}</div>
+                    <div className="text-xs md:text-sm text-gray-500 mt-1">{stat.label}</div>
+                  </div>
+                ))}
+              </div>
             </div>
-            <div className="grid grid-cols-3 gap-4 md:gap-8 max-w-lg mx-auto">
-              {[
-                { value: t.hero.stat1Value, label: t.hero.stat1Label },
-                { value: t.hero.stat2Value, label: t.hero.stat2Label },
-                { value: t.hero.stat3Value, label: t.hero.stat3Label },
-              ].map((stat, i) => (
-                <div key={i} className="text-center">
-                  <div className="text-2xl md:text-3xl font-extrabold text-brand-black">{stat.value}</div>
-                  <div className="text-xs md:text-sm text-gray-500 mt-1">{stat.label}</div>
-                </div>
-              ))}
+            {/* Right: Phone Mockup */}
+            <div className="flex justify-center lg:justify-end">
+              <div className="relative">
+                {/* Main phone */}
+                <PhoneMockup className="relative z-10">
+                  <MockSearchScreen />
+                </PhoneMockup>
+                {/* Decorative elements */}
+                <div className="absolute -top-6 -right-6 w-24 h-24 bg-brand-yellow/20 rounded-full blur-2xl" />
+                <div className="absolute -bottom-8 -left-8 w-32 h-32 bg-brand-yellow/10 rounded-full blur-3xl" />
+              </div>
             </div>
           </div>
         </div>
@@ -171,8 +402,52 @@ export default function LandingPage() {
         </div>
       </section>
 
+      {/* APP PREVIEW - 3 phones showing different screens */}
+      <section className="py-16 md:py-24 bg-gradient-to-b from-brand-gray-50 to-white overflow-hidden">
+        <div className="section-container">
+          <div className="text-center max-w-2xl mx-auto mb-12 md:mb-16">
+            <span className="inline-block text-brand-yellow-dark font-semibold text-sm uppercase tracking-wider mb-3">App Preview</span>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-brand-black mb-4">
+              {locale === "ja" ? "アプリの中を覗いてみよう" : locale === "zh" ? "看看应用内部" : locale === "th" ? "ดูภายในแอป" : "See the App in Action"}
+            </h2>
+            <p className="text-gray-600 text-lg">
+              {locale === "ja" ? "検索、チャット、プロフィール確認 — すべてがスムーズに" : locale === "zh" ? "搜索、聊天、查看资料 — 一切顺畅" : locale === "th" ? "ค้นหา แชท ดูโปรไฟล์ — ทุกอย่างราบรื่น" : "Search, chat, and review profiles — everything flows smoothly."}
+            </p>
+          </div>
+          <div className="flex items-end justify-center gap-4 md:gap-8 overflow-hidden pb-4">
+            {/* Phone 1: Search */}
+            <div className="hidden md:block transform -rotate-6 opacity-90 hover:opacity-100 hover:rotate-0 transition-all duration-500">
+              <PhoneMockup>
+                <MockSearchScreen />
+              </PhoneMockup>
+              <p className="text-center text-sm font-medium text-gray-500 mt-4">
+                {locale === "ja" ? "候補者を検索" : locale === "zh" ? "搜索候选人" : locale === "th" ? "ค้นหาผู้สมัคร" : "Search Candidates"}
+              </p>
+            </div>
+            {/* Phone 2: Profile (center, larger) */}
+            <div className="transform scale-100 md:scale-110 z-10">
+              <PhoneMockup>
+                <MockProfileScreen />
+              </PhoneMockup>
+              <p className="text-center text-sm font-medium text-gray-500 mt-4">
+                {locale === "ja" ? "プロフィール確認" : locale === "zh" ? "查看资料" : locale === "th" ? "ดูโปรไฟล์" : "View Profiles"}
+              </p>
+            </div>
+            {/* Phone 3: Chat */}
+            <div className="hidden md:block transform rotate-6 opacity-90 hover:opacity-100 hover:rotate-0 transition-all duration-500">
+              <PhoneMockup>
+                <MockChatScreen />
+              </PhoneMockup>
+              <p className="text-center text-sm font-medium text-gray-500 mt-4">
+                {locale === "ja" ? "アプリ内チャット" : locale === "zh" ? "应用内聊天" : locale === "th" ? "แชทในแอป" : "Chat In-App"}
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* HOW IT WORKS */}
-      <section id="how-it-works" className="py-16 md:py-24 bg-brand-gray-50">
+      <section id="how-it-works" className="py-16 md:py-24 bg-white">
         <div className="section-container">
           <div className="text-center max-w-2xl mx-auto mb-12 md:mb-16">
             <span className="inline-block text-brand-yellow-dark font-semibold text-sm uppercase tracking-wider mb-3">{t.howItWorks.sectionTag}</span>
@@ -181,7 +456,7 @@ export default function LandingPage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
             {(["step1", "step2", "step3"] as const).map((stepKey, i) => (
               <div key={stepKey} className="relative text-center">
-                <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center mx-auto mb-6 shadow-md border-4 border-brand-yellow/20">
+                <div className="w-20 h-20 bg-brand-gray-50 rounded-full flex items-center justify-center mx-auto mb-6 shadow-md border-4 border-brand-yellow/20">
                   {stepIcons[i]}
                 </div>
                 <span className="inline-block bg-brand-yellow text-brand-black text-sm font-bold px-3 py-1 rounded-full mb-3">{i + 1}</span>
@@ -194,7 +469,7 @@ export default function LandingPage() {
       </section>
 
       {/* PRICING */}
-      <section id="pricing" className="py-16 md:py-24 bg-white">
+      <section id="pricing" className="py-16 md:py-24 bg-brand-gray-50">
         <div className="section-container">
           <div className="text-center max-w-2xl mx-auto mb-12">
             <span className="inline-block text-brand-yellow-dark font-semibold text-sm uppercase tracking-wider mb-3">{t.pricing.sectionTag}</span>
@@ -234,7 +509,7 @@ export default function LandingPage() {
       </section>
 
       {/* REVIEWS */}
-      <section id="reviews" className="py-16 md:py-24 bg-brand-gray-50">
+      <section id="reviews" className="py-16 md:py-24 bg-white">
         <div className="section-container">
           <div className="text-center max-w-2xl mx-auto mb-12">
             <span className="inline-block text-brand-yellow-dark font-semibold text-sm uppercase tracking-wider mb-3">{t.reviews.sectionTag}</span>
@@ -250,7 +525,15 @@ export default function LandingPage() {
                 </div>
                 <p className="text-gray-700 mb-6 leading-relaxed">&ldquo;{review.text}&rdquo;</p>
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-brand-yellow/20 rounded-full flex items-center justify-center font-bold text-brand-yellow-dark">{review.name.charAt(0)}</div>
+                  {/* Placeholder avatar */}
+                  <div className="w-12 h-12 rounded-full overflow-hidden flex-shrink-0">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={`https://api.dicebear.com/7.x/notionists/svg?seed=${review.name}&backgroundColor=ffc107`}
+                      alt={review.name}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
                   <div>
                     <p className="font-semibold text-brand-black">{review.name}</p>
                     <p className="text-sm text-gray-500">{review.family}</p>
@@ -258,6 +541,89 @@ export default function LandingPage() {
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* LIFESTYLE / TRUST BANNER */}
+      <section className="py-16 md:py-20 bg-gradient-to-r from-brand-yellow/5 via-brand-yellow/10 to-brand-yellow/5">
+        <div className="section-container">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center max-w-5xl mx-auto">
+            {/* Illustration: Happy family scene */}
+            <div className="relative">
+              <div className="bg-white rounded-3xl p-8 shadow-lg border border-brand-yellow/20">
+                <div className="grid grid-cols-3 gap-4">
+                  {/* Family illustration cards */}
+                  <div className="bg-brand-yellow/10 rounded-2xl p-4 flex flex-col items-center text-center">
+                    <div className="w-12 h-12 bg-brand-yellow/20 rounded-full flex items-center justify-center mb-2">
+                      <ShieldCheck className="w-6 h-6 text-brand-yellow-dark" />
+                    </div>
+                    <span className="text-xs font-semibold text-brand-black">
+                      {locale === "ja" ? "安全確認" : locale === "zh" ? "安全验证" : locale === "th" ? "ปลอดภัย" : "Verified"}
+                    </span>
+                  </div>
+                  <div className="bg-brand-yellow/10 rounded-2xl p-4 flex flex-col items-center text-center">
+                    <div className="w-12 h-12 bg-brand-yellow/20 rounded-full flex items-center justify-center mb-2">
+                      <Heart className="w-6 h-6 text-red-400" />
+                    </div>
+                    <span className="text-xs font-semibold text-brand-black">
+                      {locale === "ja" ? "信頼" : locale === "zh" ? "信赖" : locale === "th" ? "ไว้ใจ" : "Trusted"}
+                    </span>
+                  </div>
+                  <div className="bg-brand-yellow/10 rounded-2xl p-4 flex flex-col items-center text-center">
+                    <div className="w-12 h-12 bg-brand-yellow/20 rounded-full flex items-center justify-center mb-2">
+                      <Star className="w-6 h-6 text-brand-yellow fill-brand-yellow" />
+                    </div>
+                    <span className="text-xs font-semibold text-brand-black">
+                      {locale === "ja" ? "高評価" : locale === "zh" ? "高评分" : locale === "th" ? "คะแนนสูง" : "Top Rated"}
+                    </span>
+                  </div>
+                </div>
+                {/* Stats bar */}
+                <div className="mt-6 bg-brand-gray-50 rounded-xl p-4 flex justify-around">
+                  <div className="text-center">
+                    <div className="text-xl font-extrabold text-brand-black">98%</div>
+                    <div className="text-[10px] text-gray-500">
+                      {locale === "ja" ? "満足度" : locale === "zh" ? "满意度" : locale === "th" ? "ความพึงพอใจ" : "Satisfaction"}
+                    </div>
+                  </div>
+                  <div className="w-px bg-gray-200" />
+                  <div className="text-center">
+                    <div className="text-xl font-extrabold text-brand-black">500+</div>
+                    <div className="text-[10px] text-gray-500">
+                      {locale === "ja" ? "マッチ成立" : locale === "zh" ? "成功匹配" : locale === "th" ? "จับคู่สำเร็จ" : "Matches"}
+                    </div>
+                  </div>
+                  <div className="w-px bg-gray-200" />
+                  <div className="text-center">
+                    <div className="text-xl font-extrabold text-brand-black">24h</div>
+                    <div className="text-[10px] text-gray-500">
+                      {locale === "ja" ? "サポート" : locale === "zh" ? "客服支持" : locale === "th" ? "สนับสนุน" : "Support"}
+                    </div>
+                  </div>
+                </div>
+              </div>
+              {/* Decorative blob */}
+              <div className="absolute -z-10 -top-4 -left-4 w-full h-full bg-brand-yellow/10 rounded-3xl" />
+            </div>
+            {/* Right: Trust text */}
+            <div className="text-center md:text-left">
+              <h2 className="text-3xl md:text-4xl font-extrabold text-brand-black mb-4">
+                {locale === "ja" ? "ご家族の安心を第一に" : locale === "zh" ? "家庭安全第一" : locale === "th" ? "ความปลอดภัยของครอบครัวมาก่อน" : "Your Family's Safety Comes First"}
+              </h2>
+              <p className="text-gray-600 text-lg mb-6 leading-relaxed">
+                {locale === "ja"
+                  ? "すべての候補者がID確認済み。バックグラウンドチェック済みの候補者には専用マークを表示。レビューや評価で他のご家庭の声も確認でき、安心してお選びいただけます。"
+                  : locale === "zh"
+                  ? "所有候选人均经过身份验证。通过背景调查的候选人会显示专属标记。您还可以查看其他家庭的评价和评分，安心选择。"
+                  : locale === "th"
+                  ? "ผู้สมัครทุกคนผ่านการยืนยันตัวตน ผู้สมัครที่ผ่านการตรวจสอบประวัติจะมีเครื่องหมายพิเศษ คุณยังสามารถดูรีวิวจากครอบครัวอื่นเพื่อเลือกอย่างมั่นใจ"
+                  : "Every candidate is ID-verified. Background-checked candidates display a special badge. Plus, read reviews from other families so you can choose with confidence."}
+              </p>
+              <a href="https://app.hellonanny-san.com/signup_user" className="btn-primary inline-flex text-lg">
+                {t.cta.button}<ArrowRight className="w-5 h-5 ml-2" />
+              </a>
+            </div>
           </div>
         </div>
       </section>
